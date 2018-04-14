@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>Seven Realms</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <link href="css/style1.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+		  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet" />
+
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,800,700' rel='stylesheet' type='text/css'>
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+        <link rel="icon" href="images/logo-icon.png" type="image/x-icon">
+
+		<style>
+		.person-name {
+    color: #fff;
+    background: #00bd86;
+    line-height: 42px;
+    margin-top: 0px;
+            margin-bottom: 0;}
+	.modal-footer{border-top:none !important;}
+
+.card {
+    padding-top: 20px;
+    margin: 10px 0 20px 0;
+    background-color: rgba(214, 224, 226, 0.2);
+    border-top-width: 0;
+    border-bottom-width: 2px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.card .card-heading {
+    padding: 0 20px;
+    margin: 0;
+}
+
+.card .card-heading.simple {
+    font-size: 20px;
+    font-weight: 300;
+    color: #777;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.card .card-heading.image img {
+    display: inline-block;
+    width: 46px;
+    height: 46px;
+    margin-right: 15px;
+    vertical-align: top;
+    border: 0;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.card .card-heading.image .card-heading-header {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.card .card-heading.image .card-heading-header h3 {
+    margin: 0;
+    font-size: 14px;
+    line-height: 16px;
+    color: #262626;
+}
+
+.card .card-heading.image .card-heading-header span {
+    font-size: 12px;
+    color: #999999;
+}
+
+.card .card-body {
+    padding: 0 20px;
+    margin-top: 20px;
+}
+
+.card .card-media {
+    padding: 0 20px;
+    margin: 0 -14px;
+}
+
+.card .card-media img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.card .card-actions {
+    min-height: 30px;
+    padding: 0 20px 20px 20px;
+    margin: 20px 0 0 0;
+}
+
+.card .card-comments {
+    padding: 20px;
+    margin: 0;
+    background-color: #f8f8f8;
+}
+
+.card .card-comments .comments-collapse-toggle {
+    padding: 0;
+    margin: 0 20px 12px 20px;
+}
+
+.card .card-comments .comments-collapse-toggle a,
+.card .card-comments .comments-collapse-toggle span {
+    padding-right: 5px;
+    overflow: hidden;
+    font-size: 12px;
+    color: #999;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.card-comments .media-heading {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.card.people {
+    position: relative;
+    display: inline-block;
+    width: 170px;
+    height: 300px;
+    padding-top: 0;
+    margin-left: 20px;
+    overflow: hidden;
+    vertical-align: top;
+}
+
+.card.people:first-child {
+    margin-left: 0;
+}
+
+.card.people .card-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    width: 170px;
+    height: 150px;
+    background-color: #ffffff;
+}
+
+.card.people .card-top.green {
+    background-color: #53a93f;
+}
+
+.card.people .card-top.blue {
+    background-color: #427fed;
+}
+
+.card.people .card-info {
+    position: absolute;
+    top: 150px;
+    display: inline-block;
+    width: 100%;
+    height: 101px;
+    overflow: hidden;
+    background: #ffffff;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.card.people .card-info .title {
+    display: block;
+    margin: 8px 14px 0 14px;
+    overflow: hidden;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 18px;
+    color: #404040;
+}
+
+.card.people .card-info .desc {
+    display: block;
+    margin: 8px 14px 0 14px;
+    overflow: hidden;
+    font-size: 12px;
+    line-height: 16px;
+    color: #737373;
+    text-overflow: ellipsis;
+}
+
+.card.people .card-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: inline-block;
+    width: 100%;
+    padding: 10px 20px;
+    line-height: 29px;
+    text-align: center;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.card.hovercard {
+    position: relative;
+    padding-top: 0;
+    overflow: hidden;
+    text-align: center;
+    background-color: rgba(214, 224, 226, 0.2);
+}
+
+/*
+.card.hovercard .cardheader {
+    background: url("http://lorempixel.com/850/280/nature/4/");
+    background-size: cover;
+    height: 135px;
+}
+*/
+
+.card.hovercard .avatar {
+    position: relative;
+	    background: #00bd86;
+	border: 2px solid #00bd86;
+/*
+    top: -50px;
+    margin-bottom: -50px;
+*/
+}
+			.media{
+				background-image: url(images/Avatar1.png);
+				background-repeat: no-repeat;
+				background-size: 57% 100%;
+				min-height: 180px;
+			   /* border-radius: 50%;*/
+                border: 1px solid #00bd86;
+                 background-position: left 50% top 5%;
+			}
+
+			.media:hover .media-one{
+				display: block
+			}
+
+.card.hovercard .avatar img {
+    width: 58%;
+    height: 165px;
+   background-color: aqua;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 2px solid #349fc9;;
+}
+			.card.hovercard .avatar img:hover {
+    width: 58%;
+    height: 165px;
+
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 2px solid #333;;
+}
+
+/*
+.card.hovercard .info {
+    padding: 4px 8px 10px;
+}
+*/
+
+
+
+.card.hovercard .info .title {
+    margin-bottom: 4px;
+    font-size: 24px;
+    line-height: 1;
+    color: #262626;
+    vertical-align: middle;
+}
+
+.card.hovercard .info .desc {
+    overflow: hidden;
+    font-size: 19px;
+    line-height: 40px;
+    color: #737373;
+    text-overflow: ellipsis;
+}
+
+.card.hovercard .bottom {
+    padding: 0 20px;
+    margin-bottom: 17px;
+}
+			.info{    border: 2px solid #00bd86;width: 100%;    background: #ffffff; padding: 0}
+
+.btn{ border-radius: 50%; width:226px; height:22px; line-height:18px;  }
+
+
+
+
+     .media img {
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+}
+
+.media__image { display: block; }
+
+.media__body {
+  background: rgba(41, 128, 185, 0.7);
+  bottom: 0;
+  color: white;
+  font-size: 1em;
+  left: 0;
+  opacity: 0;
+  overflow: hidden;
+  padding: 3.75em 3em;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  right: 0;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+}
+
+.media__body:hover { opacity: 1; }
+
+.media__body:after,
+.media__body:before {
+
+  bottom: 1em;
+  content: '';
+  left: 1em;
+  opacity: 0;
+  position: absolute;
+  right: 1em;
+  top: 1em;
+  -webkit-transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  transform: scale(1.5);
+  -webkit-transition: 0.6s 0.2s;
+  transition: 0.6s 0.2s;
+}
+
+.media__body:before {
+  border-bottom: none;
+  border-top: none;
+  left: 2em;
+  right: 2em;
+}
+
+.media__body:after {
+  border-left: none;
+  border-right: none;
+  bottom: 2em;
+  top: 2em;
+}
+.media__body button{
+    width:75px;
+    height:40px;
+    font-size:17px;
+    position:relative;
+    top:10px;
+    color:black;
+}
+
+.media__body:hover:after,
+.media__body:hover:before {
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+  opacity: 1;
+}
+
+.media__body h2 { margin-top: 0; }
+
+.media__body p { margin-bottom: 1.5em; }
+
+			/*.man-hover img:hover{ background-color: #333;}*/
+			.media-one{display: none;}
+body{padding:0px !important}
+
+
+
+		</style>
+    </head>
+
+    <body style="padding-right:0px !important">
+        <!-- HEADER SECTION-->
+        <div class="wraper1">
+            <header>
+
+                <nav id="header" class="navbar normal" role="navigation">
+
+                    <div class="container-fluid">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu-navbar" aria-expanded="false" aria-controls="menu-navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="index.html"><img src="images/logo.png" class="logo-img"></a>
+                        </div>
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="menu-navbar">
+                            <ul class="nav navbar-nav menu">
+
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li class="dropdown sign-top">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="images/headache.jpg" class="headprofile"> Alex Hales&nbsp;<b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="profilemain.html">Profile</a></li>
+                                        <li><a href="forgotpassword.html">Change Password</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">Logout</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                    </div>
+                    <!-- /.container-fluid -->
+                </nav>
+                <div class="clearfix"></div>
+            </header>
+            <div class="clearfix"></div>
+            <!--END HEADER SECTION-->
+            <div class="body">
+                <section class="new-sidemenu">
+                    <div class="container-fluid padd0">
+                        <div class="col-md-2 padd0" id="menu-center" style="padding-top:10px; min-height:400px">
+                           <ul class="newmenu">
+                                <li><a href="home.html" class="home"> Home</a></li>
+
+                                <li><a href="learnmore.html" class="learn"> Learn </a></li>
+<!--                                 <li><a href="accesspain.html" class="pain"> Assess Pain</a></li>-->
+                                <li><a href="dashboard.html" class="dash"> Dashboard</a></li>
+                                <li><a href="myteam-viewgrid.html" class="team"> My Team</a></li>
+                                <li><a href="bookhealth.html" class="coach"> Health Coach</a></li>
+                               <li><a href="#" class="calendar"> Calendar</a></li>
+                                <li><a href="forum.html" class="forum"> Blog</a></li>
+                                  <li><a href="resources.html" class="pain">Resources</a></li>
+<li><a href="addtools.html" class="tool"> Tools</a></li>
+                            </ul>
+                        </div>
+
+                    <div class="col-md-10 text-center" style="border-left:1px solid #ccc;background:#cccccc">
+
+                        <div class="clearfix">&nbsp;</div>
+						<div class="course-header">
+                                <div class="col-sm-12 text-center">
+                                    <h2 style="color: #00bd86;">Profile</h2></div>
+
+    <div class="clearfix"></div>
+
+                            </div>
+
+                        <div class="col-md-12" style="background:#fff;padding:40px 30px;">
+
+                            <div class="text-header">
+
+                        <div class="clearfix">&nbsp;</div>
+							<div class="col-md-12">
+                            <div class="col-md-4">
+								<div class="col-md-12">
+								  <div class="card hovercard">
+                <div class="cardheader">
+
+                </div>
+                <div class="avatar">
+					<div class="media">
+
+
+<!--								 <img  src="images/headache.jpg">-->
+
+					<div class="media-one col-md-offset-3 col-md-6" style="background-color: rgba(47,41,32,0.6);  min-height:157px;
+                                                                           margin-top: 12px;border-radius: 50%;"><a href="#" data-toggle="modal" data-target="#myModal1"><i class="fa fa-pencil fa-3x" style="margin-top:64px" aria-hidden="true"></i>
+<!--						<button type="submit" style="margin-top:60px" value="Update" class="get-main">Edit</button>-->
+						</a>	</div>
+
+
+       </div>
+     <!-- <img alt="" src="images/headache.jpg">-->
+                </div>
+                <div class="info">
+                    <div class="title">
+                       <h4 class="person-name"><b>Bill Clinton</b></h4>
+
+
+                    </div>
+                    <div class="desc">9876543210</div>
+                    <div class="desc">peter@gmail.com</div>
+                    <div class="desc"></div>
+                </div>
+
+            </div>
+                          </div>
+                            </div>
+                            <!--<div class="col-md-6">
+                                <div class="pull-left">
+                                    <h3>Bill Cliton</h3>
+                                </div>-->
+                                <div class="col-md-8">
+                                    <div class="form-box">
+                                    <div class="text-center">
+                                    <h3 class="heading">Edit Profile</h3>
+                                        </div>
+                                        <div class="clearfix">&nbsp;</div>
+								<form>
+                               <div class="form-group">
+
+    <input type="text" class="form-control" value="Bill Clinton">
+  </div>
+                                    <div class="form-group">
+
+    <input type="text" class="form-control" value="9876543210">
+  </div>
+                                    <div class="form-group">
+
+    <input type="email" class="form-control" value="peter@gmail.com">
+  </div>
+                                    <div class="form-group">
+
+                                        <textarea type="email" class="form-control" value="" rows="5">Minnestona</textarea>
+  </div>
+                                    <div class="form-group text-center">
+
+                                       <button type="submit" value="Update" class="get-main">Update</button>
+  </div>
+                                </form>
+                                        </div>
+								</div>
+
+                                </div>
+                                <div class="clearfix"></div>
+                               </div>
+                                 </div>
+                           <div class="clearfix">&nbsp;</div>
+                           </div>
+					</div>
+                </section>
+            </div>
+           
+           
+            <footer>
+                <div class="footer" id="footer">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="row">
+                            <div class="  col-md-3 col-sm-6 col-xs-6">
+                                <h3> Seven Realms </h3>
+                                <ul>
+                                  <li> <a href="for_preventingpain.html"> Preventing Pain</a> </li>
+                                   <li> <a href="course-overview.html"> Course Overview</a> </li>
+                                    <li> <a href="register.html"> Sign Up</a> </li>
+                                     <li> <a href="aboutus.html"> About Us </a> </li>
+                                    <li> <a href="contactus.html"> Contact Us</a> </li>
+                                     <li> <a href="termofuse.html"> Terms Of Use </a> </li>
+                                     <li> <a href="termsofservice.html"> Terms Of Service </a> </li>
+                                      <li> <a href="privacy_policy.html">Privacy Policy</a> </li>
+                                </ul>
+                            </div>
+                            <div class=" col-md-3 col-sm-6 col-xs-6">
+                                <h3> Solutions </h3>
+                                <ul>
+                                    <li> <a href="for_you.html"> For You</a> </li>
+                                    <li> <a href="for_employeees.html"> For Employers      </a> </li>
+                                    <li> <a href="for_health_professionals.html"> For Health Professionals</a> </li>
+                                </ul>
+                            </div>
+                            <div class=" col-md-3 col-sm-6 col-xs-12">
+                                <h3>Get in touch </h3>
+                                <form class="contact-form">
+                                    <div class="form-group">
+
+                                        <input type="text" class="form-control"  placeholder="Name">
+                                    </div>
+                                    <div class="form-group">
+
+                                        <input type="text" class="form-control"  placeholder="Mobile">
+                                    </div>
+                                    <div class="form-group">
+
+                                        <input type="text" class="form-control"  placeholder="Email">
+                                    </div>
+                                    <div class="form-group">
+
+                                        <textarea type="text" class="form-control"  placeholder="Comments"></textarea>
+                                    </div>
+                                   <div class="form-group">
+
+                                        <button class="btn btn-primary btn-block">Submit</button>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <div class=" col-md-3 col-sm-6 col-xs-12 ">
+                                <h3> Social </h3>
+
+                                <ul class="social">
+                                    <li>
+                                        <a href="https://www.facebook.com/preventingchronicpain" target="_blank"> <i class=" fa fa-facebook"></i> </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://twitter.com/search?q=%40Prevent_Pain&src=typd" target="_blank" target="_blank"> <i class="fa fa-twitter"></i> </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://plus.google.com/117694283256027153264" target="_blank"> <i class="fa fa-google-plus"></i> </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="https://www.youtube.com/channel/UCXCex4WDfmBMZaUb9NiKjuQ" target="_blank"> <i class="fa fa-youtube"></i> </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--/.row-->
+                        <div class="clearfix"></div>
+                    </div>
+                    <!--/.container-->
+                    <div class="clearfix"></div>
+                </div>
+                <!--/.footer-->
+
+                <div class="footer-bottom">
+                    <div class="container">
+                        <p class="text-center"> Copyrights &copy; Seven Realms Solutions 2016. All rights reserved. </p>
+
+                    </div>
+                </div>
+                <!--/.footer-bottom-->
+            </footer>
+        </div>
+
+        <!--modal-->
+
+        <div id="myModal1" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" style="color: #333;
+    opacity: 1;">&times;</button>
+        <h4 class="modal-title text-left">Upload a Profile Picture</h4>
+      </div>
+      <div class="modal-body">
+		   <form>
+       <div class="col-md-8 col-md-offset-2 man-hover">
+		  <img alt="" src="images/Avatar1.png" class="col-md-offset-2" style="width:70% !important;height:190px">
+		   <div class="form-group">
+			  <div class="clearfix">&nbsp;</div><div class="clearfix">&nbsp;</div>
+			<input type="file" class="form-control" name="profile">
+
+
+		  </div>
+		  </div>
+
+		  </form>
+
+		   <div class="clearfix">&nbsp;</div>
+		   <div class="clearfix">&nbsp;</div>
+		  <div class="col-md-12 text-center">
+		  <a href="#" class="get-main sign-up btn-sm"> Conform</a>
+		  <a href="#" class="get-main sign-up btn-sm"> Cancel</a>
+          </div>
+      </div>
+      <div class="modal-footer">
+       <div class="clearfix">&nbsp;</div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+<!--   post modal end-->
+
+
+        <!--modal end-->
+
+
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+		<script src="js/jquery.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+
+    </body>
+
+</html> 

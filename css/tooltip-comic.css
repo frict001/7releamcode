@@ -1,0 +1,90 @@
+@font-face {
+  font-family: 'Raleway-SemiBold';
+  src: url(../fonts/Raleway-Bold.ttf);
+}
+.tooltip {
+	position: relative;
+	width: 310px;
+	margin: 0 auto;
+	font-family: 'Raleway-SemiBold', fantasy;
+}
+
+.tooltip-content {
+	position: absolute;
+	line-height: 1.2;
+	pointer-events: none;
+	text-align: center;
+	z-index: 100;
+	opacity: 0;
+	--padding: 1.75em;
+	font-size: 1.05em;
+	bottom: 100%;
+    font-size: 16px;
+    color: #74777b;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    --padding: 0.75em;
+    text-align: justify;
+}
+
+.tooltip-effect-2 .tooltip-content {
+	padding: 10px;
+	width: 220px;
+	--left: 50%;
+	--margin: 0 0 40px -110px;
+	-webkit-transform: translate3d(0,-10px,0);
+	transform: translate3d(0,-10px,0);
+	-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+	transition: opacity 0.3s, transform 0.3s;
+}
+
+.tooltip-effect-2.bursted .tooltip-content {
+	opacity: 1;
+	-webkit-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);
+	-webkit-transition-delay: 0.2s;
+	transition-delay: 0.2s;
+}
+
+/* Shape */
+.tooltip-shape {
+	position: absolute;
+	width: 170px;
+	height: 130px;
+	pointer-events: none;
+	z-index: 9999;
+}
+
+.tooltip-shape.up-side-down svg {
+	-ms-transform: rotate(180deg); /* IE 9 */
+    -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+    transform: rotate(180deg);
+}
+
+.tooltip-effect-2 .tooltip-shape {
+	bottom: 100%;
+	left: 50%;
+	--margin: 0 0 0 -110px;
+}
+
+.tooltip.bursted .tooltip-shape {
+	pointer-events: auto;
+}
+
+.tooltip-shape svg {
+	stroke: #e91e1e;
+	stroke-width: 2;
+}
+
+.tooltip-effect-2 .tooltip-shape svg polygon {
+	fill: transparent;
+	stroke-dasharray: 580;
+	stroke-dashoffset: 580;
+}
+
+.tooltip-effect-2.bursted .tooltip-shape svg polygon {
+	stroke-dashoffset: 0;
+	fill: #fff;
+	-webkit-transition: stroke-dashoffset 0.8s, fill 0.8s;
+	transition: stroke-dashoffset 0.8s, fill 0.8s;
+}

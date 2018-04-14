@@ -1,0 +1,12 @@
+.fixed-menu-auto li a{height:95px;}
+.forums-listing li {padding:10px 20px;font-size:20px;}
+.forums-listing .active a{color:999999}
+
+.booking-details h2{margin:15px }
+.contribute-content a{font-size:24px;}
+.contribute-content p{font-size:18px;}
+.booking-details{padding-top:15px;padding-bottom:15px;}
+.btn-border{border-radius:0px;}
+
+/*video */
+.ytp-pause-overlay.ytp-scroll-min{display:none !important;}

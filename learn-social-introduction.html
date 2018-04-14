@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>Seven Realms</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <link href="css/style1.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet" />
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,800,700' rel='stylesheet' type='text/css'>
+
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+        <link rel="icon" href="images/logo-icon.png" type="image/x-icon">
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/flick/jquery-ui.css">
+        <style>
+
+
+
+
+      /* ui slider pips */
+
+      .ui-slider-horizontal.ui-slider-pips { margin-bottom: 2.8em; }
+      .ui-slider-pips .ui-slider-number,
+      .ui-slider-pips .ui-slider-pip-hide { display: none; }
+      .ui-slider-pips .ui-slider-pip-number .ui-slider-number {/* display: block;*/ display: none }
+
+
+
+      .ui-slider-pips .ui-slider-pip {
+      width: 2em; height: 1em; line-height: 1em; position: absolute;
+      font-size: 0.8em; color: #999; overflow: visible; text-align: center;
+      top: 20px; left: 20px; margin-left: -1em; cursor: pointer; display: none
+      }
+      .ui-slider-pips .ui-slider-line { background: #999; width: 1px; height: 3px; position: absolute; left: 50%; }
+      .ui-slider-pips .ui-slider-number { position: absolute; top: 5px; left: 50%; margin-left: -1em; width: 2em; }
+      .ui-slider-pip:hover .ui-slider-number { color: white; font-weight: bold; }
+
+
+
+
+      .ui-slider-vertical.ui-slider-pips { margin-bottom: 0; margin-right: 2em; }
+      .ui-slider-vertical.ui-slider-pips .ui-slider-pip {
+      text-align: left; top: 20px; left: 20px; margin-left: 0; margin-top: -0.5em;
+      }
+      .ui-slider-vertical.ui-slider-pips .ui-slider-line { width: 3px; height: 1px; position: absolute; top: 50%; left: 0; }
+      .ui-slider-vertical.ui-slider-pips .ui-slider-number { top: 50%; left: 0.5em; margin-left: 0; margin-top: -0.5em; width: 2em; }
+      .ui-slider-vertical.ui-slider-pip:hover .ui-slider-number { color: white; font-weight: bold; }
+
+
+
+      .ui-slider-float .ui-slider-handle {
+
+      }
+
+      .ui-slider-float .ui-slider-tip,
+      .ui-slider-float .ui-slider-tip-number {
+
+      position: absolute; visibility: hidden;
+      top: -40px; display: block;
+      width: 34px; margin-left: -17px; left: 50%;
+      height: 20px; line-height: 20px;
+      background: white; border-radius: 3px;
+      box-shadow: 0 0 3px rgba(0,0,0,0.4);
+      text-align: center;
+      font-size: 12px;
+      opacity: -1; transition: all 0.4s ease;
+      color: #333;
+      }
+
+      .ui-slider-float .ui-slider-handle:hover .ui-slider-tip,
+      .ui-slider-float .ui-slider-handle:focus .ui-slider-tip,
+      .ui-slider-float .ui-slider-pip:hover .ui-slider-tip-number{ opacity: 0.9; top: -30px; color: #333; visibility: visible; }
+
+      .ui-slider-float .ui-slider-pip .ui-slider-tip-number { top: 15px; }
+      .ui-slider-float .ui-slider-pip:hover .ui-slider-tip-number { top: 5px; font-weight: normal; }
+
+      .ui-slider-float .ui-slider-tip:after,
+      .ui-slider-float .ui-slider-pip .ui-slider-tip-number:after {
+
+      content: " ";
+      width: 0; height: 0;
+      border: 5px solid rgba(255,255,255,0);
+      border-top-color: rgba(255,255,255,1);
+      position: absolute;
+      bottom: -10px; left: 50%; margin-left: -5px;
+
+      }
+
+      .ui-slider-float .ui-slider-pip .ui-slider-tip-number:after {
+      border: 5px solid rgba(255,255,255,0);
+      border-bottom-color: rgba(255,255,255,1);
+      top: -10px;
+      }
+
+
+      /* ------------------------- */
+      /* demo stuff */
+
+      .wrapper { padding: 20px 20px 0;/* border: 1px dotted rgba(200,200,255,0.6); background: rgba(0,10,20,0.7);*/ border-radius: 10px;  }
+      .ui-slider { box-shadow: inset 0 2px 1px #aaa; border-color: #000; }
+
+      .ui-slider-horizontal { height: 18px;
+    background: red; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left, #f80c12, #ee1100, #ff3311,#ff4422, #ff6644,#ff9933, #feae2d,#ccbb33,#d0c310,#aacc22,#69d025,#22ccaa,#12bdb9,#11aabb,#4444dd,#3311bb,#3b0cbd,#442299); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, #f80c12, #ee1100, #ff3311,#ff4422, #ff6644,#ff9933, #feae2d,#ccbb33,#d0c310,#aacc22,#69d025,#22ccaa,#12bdb9,#11aabb,#4444dd,#3311bb,#3b0cbd,#442299); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, #f80c12, #ee1100, #ff3311,#ff4422, #ff6644,#ff9933, #feae2d,#ccbb33,#d0c310,#aacc22,#69d025,#22ccaa,#12bdb9,#11aabb,#4444dd,#3311bb,#3b0cbd,#442299); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, #f80c12, #ee1100, #ff3311,#ff4422, #ff6644,#ff9933, #feae2d,#ccbb33,#d0c310,#aacc22,#69d025,#22ccaa,#12bdb9,#11aabb,#4444dd,#3311bb,#3b0cbd,#442299); /* Standard syntax (must be last) */ }
+      .ui-slider-horizontal .ui-slider-handle { height: 26px; width: 14px; background: #349fc9; border: 1px solid rgba(0,0,0,0.6); margin-left: -8px; cursor: pointer; }
+      .ui-slider-horizontal.green .ui-slider-handle { background: #afe32c;}
+
+
+      @media (max-width: 700px) {
+
+      .ui-slider-pip:nth-child(odd) .ui-slider-number { display: none; }
+
+      }
+
+      @media (max-width: 400px) {
+
+      .ui-slider-pip:nth-child(2n+1) .ui-slider-number { display: none; }
+      .ui-slider-pip:nth-child(4n) .ui-slider-number { display: none; }
+
+      }
+
+      </style>
+</head>
+
+    <body style="overflow-x:hidden;">
+        <!-- HEADER SECTION-->
+        <div class="wraper1">
+            <header>
+
+                <nav id="header" class="navbar normal" role="navigation">
+
+                    <div class="container-fluid">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu-navbar" aria-expanded="false" aria-controls="menu-navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="index.html"><img src="images/logo.png" class="logo-img"></a>
+                        </div>
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="menu-navbar">
+
+                            <ul class="nav navbar-nav navbar-right">
+                                <li class="dropdown sign-top">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="images/headache.jpg" class="headprofile"> Alex Hales&nbsp;<b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="profilemain.html">Profile</a></li>
+                                        <li><a href="forgotpassword.html">Change Password</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">Logout</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                    </div>
+                    <!-- /.container-fluid -->
+                </nav>
+                <div class="clearfix"></div>
+            </header>
+            <div class="clearfix"></div>
+            <!--END HEADER SECTION-->
+            <div class="">
+                <section class="new-sidemenu">
+                    <div class="container-fluid padd0">
+
+                     <div class="col-md-2 padd0" id="menu-center" style="padding-top:10px; min-height:500px">
+                          <ul class="newmenu">
+                                <li><a href="home.html" class="home"> Home</a></li>
+                                <li class="active"><a href="learnmore.html" class="learn"> Learn </a></li>
+<!--                                <li><a href="accesspain.html" class="pain"> Assess Pain</a></li>-->
+                                <li><a href="dashboard.html" class="dash"> Dashboard</a></li>
+                                <li><a href="myteam-viewgrid.html" class="team"> My Team</a></li>
+                                <li><a href="bookhealth.html" class="coach"> Health Coach</a></li>
+                                <li><a href="#" class="calendar"> Calendar</a></li>
+                                <li><a href="forum.html" class="forum"> Blog</a></li>
+                                 <li><a href="resources.html" class="pain">Resources</a></li>
+<li><a href="content-wrapper" class="tool"> Tools</a></li>
+                            </ul>
+                        </div>
+
+
+
+
+                        <div class="col-md-10 aa" style="border-left:1px solid #ccc;">
+                             <div class="clearfix">&nbsp;</div>
+
+                            <div class="course-header">
+                                <div class="col-sm-8 text-left">
+                                    <h2 style="color: #00bd86;">8.2 Professor Payne</h2></div>
+                                <div class="col-sm-4 text-right"><a href="learn-social.html" class="backroll"><span><i class="fa fa-arrow-left" aria-hidden="true"></i></span>Back to Social Life Tools</a></div>
+    <div class="clearfix"></div>
+
+                            </div>
+
+
+                        <div class="col-md-12 mem-head" style="background:#fff;padding:20px;">
+
+			<div id="rootwizard" style="font-family:Calibri;">
+                <div class="col-sm-2">
+
+				<div class="navbar">
+					<div class="navbar-inner">
+
+							<ul class="topics-center-align nav nav-pills nav-stacked">
+								<!-- li><a href="#tab0" data-toggle="tab">Introduction</a></li -->
+                                <li class="active"><a href="#tab1" data-toggle="tab">Professor Payne</a></li>
+                               <li><a href="#tab2" data-toggle="tab">Understand Your Social Life</a></li>
+                               	<li><a href="#tab3" data-toggle="tab">Social Action Plan</a></li>
+          	</ul>
+
+					</div>
+				</div>
+                     </div>
+                <div class="col-sm-10">
+				<div class="tab-content">
+
+					<div class="tab-pane in active" id="tab1">
+            <div class="embed-responsive embed-responsive-16by9">
+<!--               <iframe id="ytplayers1" src="https://player.vimeo.com/video/221987282?enablejsapi=1&version=3&playerapiid=ytplayer&showinfo=0&rel=0" frameborder="0" allowfullscreen="true" allowscriptaccess="always"></iframe>-->
+          <iframe id="ytplayers1" src="https://player.vimeo.com/video/217477041?enablejsapi=1&version=3&playerapiid=ytplayer&showinfo=0&rel=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+						</div>
+
+                    </div>
+                    <div class="tab-pane" id="tab2">
+						<div class="embed-responsive embed-responsive-16by9">
+						   <iframe id="ytplayers1" src="https://player.vimeo.com/video/222326958?enablejsapi=1&version=3&playerapiid=ytplayer&showinfo=0&rel=0" frameborder="0" allowfullscreen="true" allowscriptaccess="always"></iframe>
+						
+						</div>
+
+                    </div>
+                     <div class="tab-pane" id="tab3">
+						<div class="embed-responsive embed-responsive-16by9">
+						   <iframe id="ytplayers1" src="https://player.vimeo.com/video/222327011?enablejsapi=1&version=3&playerapiid=ytplayer&showinfo=0&rel=0" frameborder="0" allowfullscreen="true" allowscriptaccess="always"></iframe>
+						
+						</div>
+
+                    </div>
+
+
+
+
+                     <ul class="pager wizard">
+						<li class="previous first"><a href="javascript:;" class="wizard-btn">First</a></li>
+						<li class="previous"><a href="javascript:;" class="wizard-btn">Previous</a></li>
+						<li class="next last"><a href="javascript:;" class="wizard-btn">Last</a></li>
+						<li class="next"><a href="javascript:;" class="wizard-btn">Next</a></li>
+						<li class="finish"><a href="learn-social.html" class="fnsh-btn">Complete</a></li>
+                        </ul>
+                    </div>
+                            </div>
+                            </div>
+
+</div>
+
+                             <div class="clearfix">&nbsp;</div>
+
+
+
+
+                                <div class="clearfix">&nbsp;</div>
+                            </div>
+
+                        </div>
+                </section>
+
+            <footer>
+                <div class="footer" id="footer">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="row">
+                            <div class="  col-md-3 col-sm-6 col-xs-6">
+                                <h3> Seven Realms </h3>
+                                <ul>
+                                   <li> <a href="for_preventingpain.html"> Preventing Pain</a> </li>
+                                    <li> <a href="course-overview.html"> Course Overview</a> </li>
+                                    <li> <a href="register.html"> Sign Up</a> </li>
+                                    <li> <a href="aboutus.html"> About Us </a> </li>
+                                    <li> <a href="contactus.html"> Contact Us</a> </li>
+                                    <li> <a href="termofuse.html"> Terms Of Use </a> </li>
+                                     <li> <a href="termsofservice.html"> Terms Of Service </a> </li>
+                                    <li> <a href="privacy_policy.html">Privacy Policy</a> </li>
+
+                                </ul>
+                            </div>
+                            <div class=" col-md-3 col-sm-6 col-xs-6">
+                                <h3> Solutions </h3>
+                                <ul>
+                                    <li> <a href="for_you.html"> For You</a> </li>
+                                    <li> <a href="for_employeees.html"> For Employers      </a> </li>
+                                    <li> <a href="for_health_professionals.html"> For Health Professionals</a> </li>
+                                </ul>
+                            </div>
+                            <div class=" col-md-3 col-sm-6 col-xs-12">
+                                <h3>Get in touch </h3>
+                                <form class="contact-form">
+                                    <div class="form-group">
+
+                                        <input type="text" class="form-control"  placeholder="Name">
+                                    </div>
+                                    <div class="form-group">
+
+                                        <input type="text" class="form-control"  placeholder="Mobile">
+                                    </div>
+                                    <div class="form-group">
+
+                                        <input type="text" class="form-control"  placeholder="Email">
+                                    </div>
+                                    <div class="form-group">
+
+                                        <textarea type="text" class="form-control"  placeholder="Comments"></textarea>
+                                    </div>
+                                    <div class="form-group">
+
+                                        <button class="btn btn-primary btn-block">Submit</button>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <div class=" col-md-3 col-sm-6 col-xs-12 ">
+                                <h3> Social </h3>
+
+                                <ul class="social">
+                                    <li>
+                                        <a href="https://www.facebook.com/preventingchronicpain" target="_blank"> <i class=" fa fa-facebook"></i> </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://twitter.com/search?q=%40Prevent_Pain&src=typd" target="_blank" target="_blank"> <i class="fa fa-twitter"></i> </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://plus.google.com/117694283256027153264" target="_blank"> <i class="fa fa-google-plus"></i> </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="https://www.youtube.com/channel/UCXCex4WDfmBMZaUb9NiKjuQ" target="_blank"> <i class="fa fa-youtube"></i> </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--/.row-->
+                        <div class="clearfix"></div>
+                    </div>
+                    <!--/.container-->
+                    <div class="clearfix"></div>
+                </div>
+                <!--/.footer-->
+
+                <div class="footer-bottom">
+                    <div class="container">
+                        <p class="text-center"> Copyrights &copy; Seven Realms Solutions 2016. All rights reserved. </p>
+
+                    </div>
+                </div>
+                <!--/.footer-bottom-->
+            </footer>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ <script src="js/jquery.bootstrap.wizard.js"></script>
+
+           <script type="text/javascript">
+		$(document).ready(function() {
+				$('#rootwizard').bootstrapWizard({
+					  onTabShow : function(tab,navigation, index) {
+						  				var $total = navigation.find('li').length;
+										var $current = index + 1;
+										//alert($current);
+										//var $percent = ($current / $total) * 100;
+										//$('#rootwizard').find('.bar').css({width : $percent + '%'});
+
+										//While switching across the tabs, we need to pause the video that is being played - here we're pausing all videos.
+
+                           $("iframe").each(
+                                function (idx, elem) {
+                                    $(elem)[0].contentWindow.postMessage('{"method":"pause","value":""}', '*'); // other options beside pauseVideo are playVideo,stopVideo
+                                }
+                            );
+
+
+
+								 }//onTabshow function
+				});//rootwizard
+
+
+
+
+		});//document.ready
+	</script>
+  <!--<script src="https://code.jquery.com/jquery-2.1.1.js"></script>-->
+  <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+  <!--
+  <script type="text/javascript">$(".slider1")
+  .slider({
+  max: 12
+  })
+  .slider("pips", {
+  rest: "label"
+  });</script>
+  -->
+
+  <script>
+  var points = 20;
+
+
+
+
+
+
+  /* jquery slider pips plugin, version 0.1 */
+
+  (function($) {
+
+  var extensionMethods = {
+
+  pips: function( settings ) {
+
+  options = {
+
+    first: 	"number", 	// "pip" , false
+    last: 	"number", 	// "pip" , false
+    rest: 	"pip" 		// "number" , false
+
+  };
+
+  $.extend( options, settings );
+
+  // get rid of all pips that might already exist.
+  this.element.addClass('ui-slider-pips').find( '.ui-slider-pip' ).remove();
+
+  // we need teh amount of pips to create.
+  var pips = this.options.max - this.options.min;
+
+    // for every stop in the slider, we create a pip.
+    for( i=0; i<=pips; i++ ) {
+
+      // hold a span element for the pip
+      var s = $('<span class="ui-slider-pip"><span class="ui-slider-line"></span><span class="ui-slider-number">'+i+'</span></span>');
+
+      // add a class so css can handle the display
+      // we'll hide numbers by default in CSS, and show them if set.
+      // we'll also use CSS to hide the pip altogether.
+      if( 0 == i ) {
+        s.addClass('ui-slider-pip-first');
+        if( "number" == options.first ) { s.addClass('ui-slider-pip-number'); }
+        if( false == options.first ) { s.addClass('ui-slider-pip-hide'); }
+      } else if ( pips == i ) {
+        s.addClass('ui-slider-pip-last');
+        if( "number" == options.last ) { s.addClass('ui-slider-pip-number'); }
+        if( false == options.last ) { s.addClass('ui-slider-pip-hide'); }
+      } else {
+        if( "number" == options.rest ) { s.addClass('ui-slider-pip-number'); }
+        if( false == options.rest ) { s.addClass('ui-slider-pip-hide'); }
+      }
+
+
+      // if it's a horizontal slider we'll set the left offset,
+      // and the top if it's vertical.
+      if( this.options.orientation == "horizontal" )
+        s.css({ left: '' + (100/pips)*i + '%'  });
+      else
+        s.css({ top: '' + (100/pips)*i + '%'  });
+
+
+      // append the span to the slider.
+      this.element.append( s );
+
+    }
+
+  }
+
+
+  };
+
+  $.extend(true, $['ui']['slider'].prototype, extensionMethods);
+
+
+  })(jQuery);
+
+
+
+
+  (function($) {
+
+  var extensionMethods = {
+
+  float: function( settings ) {
+
+  options = {};
+  $.extend( options, settings );
+
+  // add a class for the CSS
+  this.element.addClass('ui-slider-float');
+
+
+  // if this is a range slider
+  if( this.options.values ) {
+
+    var $tip = [
+      $('<span class="ui-slider-tip">'+ this.options.values[0]+'</span>'),
+      $('<span class="ui-slider-tip">'+ this.options.values[1]+'</span>')
+    ];
+
+
+  // else if its just a normal slider
+  } else {
+
+    // create a tip element
+    var $tip = $('<span class="ui-slider-tip">'+ this.options.value+'</span>');
+
+  }
+
+  // now we append it to all the handles
+  this.element.find('.ui-slider-handle').each( function(k,v) {
+    $(v).append($tip[k]);
+  })
+
+  // if this slider also has numbers, we'll make those into tips, too; by cloning and changing class.
+  this.element.find('.ui-slider-number').each(function(k,v) {
+    var $e = $(v).clone().removeClass('ui-slider-number').addClass('ui-slider-tip-number');
+    $e.insertAfter($(v));
+  });
+
+  // when slider changes, update handle tip value.
+  this.element.on('slidechange slide', function(e,ui) {
+    $(ui.handle).find('.ui-slider-tip').text( ui.value );
+  });
+
+  }
+
+
+  };
+
+  $.extend(true, $['ui']['slider'].prototype, extensionMethods);
+
+
+  })(jQuery);
+
+
+
+
+
+  /* ------------------------- */
+  /* demo stuff */
+
+  $(document).ready(function() {
+  $('.slider, .slider2').slider({min:0,max:10,animate:true, value:5});
+  $('.slider3').slider({min:0,max:10,animate:true,range:true, values:[2,7]});
+  $('.slider').slider('pips');
+  $('.slider2').slider('pips', {rest:'number'});
+  // $('.slider3').slider('pips', {first:'pip', last: 'pip'});
+  //
+  //  $('.slider4').slider({min:0,max:points,animate:true,value:4});
+  //  $('.slider6').slider({min:0,max:points,animate:true,range: true,values:[3,6] });
+
+  //  $('.slider4').slider('pips');
+  //  $('.slider4, .slider6').slider('float');
+  });
+
+
+
+  </script>
+
+        </div>
+    </body>
+
+</html>

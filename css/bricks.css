@@ -1,0 +1,226 @@
+body, html {
+  width: 100%;
+  height: 100%;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+body {
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  /*background: rgba(255, 186, 82, 0.75);*/
+  display: table;
+}
+
+.brick-container {
+  display: table;
+}
+
+button{border: 0px;
+height: 45px}
+
+.bg1 {background: url(../img/bg1.jpg); background-size: 100% 190%;background-repeat: no-repeat;}
+.bg2 {background: url(../img/bg2.jpg); background-size:100% 190%;background-repeat: no-repeat;}
+.bg3 {background: url(../img/bg3.jpg); background-size: 100% 190%;background-repeat: no-repeat;}
+.bg4 {background: url(../img/bg4.jpg); background-size: 100% 190%;background-repeat: no-repeat;}
+.bg5 {background: url(../img/bg5.jpg); background-size: 100% 190%;background-repeat: no-repeat;}
+.bg6 {background: url(../img/bg6.jpg); background-size:100% 190%;background-repeat: no-repeat;}
+.bg7 {background: url(../img/bg7.jpg); background-size:100% 190%;background-repeat: no-repeat;}
+.bg8 {background: url(../img/bg8.jpg); background-size:100% 190%;background-repeat: no-repeat;}
+
+.bricks { 
+  z-index: 1;
+  -webkit-transform: scaleY(-1);
+     -moz-transform: scaleY(-1);
+      -ms-transform: scaleY(-1);
+          transform: scaleY(-1);
+  display: table-cell;
+  --vertical-align: bottom;
+  overflow: hidden;
+}
+
+.navigations.showed {
+  z-index: 9998;
+  opacity: 1;
+}
+.navigations {
+  z-index: -1;
+  opacity: 0;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+     -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+
+  -webkit-transition: opacity 0.5s;
+     -moz-transition: opacity 0.5s;
+      -ms-transition: opacity 0.5s;
+          transition: opacity 0.5s;
+}
+
+.navigations .fancy-button {
+  width: 320px;  
+}
+
+/*
+.page-title-wrapper {
+   position: fixed;
+    right: 20px;
+    left: 10px;
+    width: 370px;
+     height: 150px; 
+    padding: 10px;
+    color: #4a4a4a;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    z-index: -9;
+    font-size: 20px;
+    text-align: left;
+}
+*/
+
+.page-title-wrapper {
+    position: fixed;
+    width: 100%;
+    height: 50px;
+    color: #000000;
+    z-index: 1;
+    text-align: left;
+top:0px;
+    background: rgba(255, 255, 255, 0.77);
+}
+
+.page-title-wrapper  h1{
+  font-size: 1.5em;
+      font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    padding: 10px;
+    margin: 0px;
+}
+
+
+.button {
+  background: rgb(202, 104, 65);
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  --font-family: Roboto;
+  font-size: 1.9em;
+  height: 65px;
+  letter-spacing: .2px;
+  line-height: 65px;
+  text-align: center;
+  --text-transform: uppercase;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  width: 150px;
+}
+.button.brick1 {
+  background-image: url('../img/brick1.png');
+}
+.button.brick2 {
+  background-image: url('../img/brick2.png');
+}
+.button.brick3 {
+  background-image: url('../img/brick3.png');
+}
+
+.button.transparent {
+  -webkit-transition: background 0.5s;
+  -moz-transition: background 0.5s;
+  -ms-transition: background 0.5s;
+  -o-transition: background 0.5s;
+  transition: background 0.5s;
+  background: transparent !important;
+}
+.button:hover {
+  color: #efe705;
+}
+.fancy-button:not(.blocked) .button:active {
+  box-shadow: inset 0px 2px 8px -1px #d7143b;
+}
+.fancy-button.odd {
+  z-index: -1 !important;
+}
+.fancy-button.blocked {
+  z-index: 99999;
+}
+.fancy-button.blocked.empty {
+  z-index: 999;
+}
+.bricks .fancy-button {
+  margin: auto;
+  position: relative;
+  padding: 5px;
+  margin: auto;
+  position: relative;
+  display: inline-block;
+  float: left;
+  box-sizing: border-box;  
+  -webkit-transform: scaleY(-1);
+     -moz-transform: scaleY(-1);
+      -ms-transform: scaleY(-1);
+          transform: scaleY(-1);
+}
+
+.fancy-button.active {
+  z-index: 99999;
+}
+
+.left-frills {
+  right: 264px;
+  top: 28.5px;
+}
+
+
+.right-frills {
+  left: 264px;
+  top: 28.5px;
+}
+
+@media only screen and (min-width: 768px) {
+    .fancy-button {
+      width: 33.33%;
+    }
+    .fancy-button .button {
+      width: 100%;
+    }
+    .fancy-button.odd {
+      width: 16.665%;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .fancy-button {
+      width: 50%;
+    }
+    .fancy-button .button {
+      width: 100%;
+    }
+    .fancy-button.odd {
+      width: 25%;
+    }
+}
+@media only screen and (max-width: 480px) {
+    .navigations .fancy-button {
+        width: 250px;
+    }    
+    .fancy-button {
+      width: 75%;
+    }
+    .fancy-button .button {
+      width: 100%;
+    }
+    .fancy-button.odd {
+      width: 12.5%;
+    }
+    .button {
+      font-size: 1.5em;
+    }
+  
+}

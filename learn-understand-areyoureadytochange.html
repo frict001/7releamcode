@@ -1,0 +1,1600 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>Seven Realms</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <link href="css/style1.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet" />
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,800,700' rel='stylesheet' type='text/css'>
+
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+        <link rel="icon" href="images/logo-icon.png" type="image/x-icon">
+      <style>
+          .risk {
+  width: 10px;
+    height: 10px;
+    border: 1px solid blue;
+    background-color:green;
+}
+
+/*
+			.highcharts-container {width: 100% !important}
+			.highcharts-background {width: 100% !important}
+			.highcharts-root{width:100% !important}
+*/
+        .panel-title {
+    /* margin-top: 0; */
+    margin-bottom: 0;
+    font-size: 16px;
+    text-align: -webkit-auto;
+    color: inherit;
+}
+.panel-body {padding: 15px;text-align: -webkit-auto;}
+.panel.with-nav-tabs .panel-heading{padding: 0px 0px 0px 0px;}
+.panel.with-nav-tabs .nav-tabs{border-bottom: none;}
+.panel.with-nav-tabs .nav-justified{margin-bottom: -1px; }
+
+      /********************************************************************/
+      /*** PANEL PRIMARY ***/
+      .with-nav-tabs.panel-primary .nav-tabs > li > a,
+      .with-nav-tabs.panel-primary .nav-tabs > li > a:hover,
+      .with-nav-tabs.panel-primary .nav-tabs > li > a:focus { color: #fff;}
+      .with-nav-tabs.panel-primary .nav-tabs > .open > a,
+      .with-nav-tabs.panel-primary .nav-tabs > .open > a:hover,
+      .with-nav-tabs.panel-primary .nav-tabs > .open > a:focus,
+      .with-nav-tabs.panel-primary .nav-tabs > li > a:hover,
+      .with-nav-tabs.panel-primary .nav-tabs > li > a:focus {
+      	color: #349fc9 !important;background-color: #fff !important;border-color: #00bd86 !important;text-align: center;border-bottom:3px solid #00bd86 !important;}
+      .with-nav-tabs.panel-primary .nav-tabs > li.active > a,
+      .with-nav-tabs.panel-primary .nav-tabs > li.active > a:hover,
+      .with-nav-tabs.panel-primary .nav-tabs > li.active > a:focus {
+      	color: 	#428bca;background-color: #fff;border-color:#00bd86;text-align: center;border-bottom:3px solid #00bd86;/*border-bottom-color: transparent;*/}
+
+ .board{ width: 93%; height: 500px; background:#f8f8f8;}
+ .board .nav-tabs {position: relative;margin: 40px auto;margin-bottom: 0; box-sizing: border-box;}
+ .board > div.board-inner{ background: #00bd86;background-size: 30%;}
+  p.narrow{ width: 60%; margin: 10px auto;}
+
+ .liner{ height: 2px;background: #ddd; position: absolute;width: 40%; margin: 0 auto;left: 0; right: 0px; top: 56%; }
+  span.round-tabs.three:hover{background-color: #dddddd;}
+
+  .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus { color: #555555; cursor: default;background-color: #00bd86;  border-bottom-color: transparent;}
+                  .nav-tabs>li>a:hover{border-color:#00bd86 !important;   }
+              span.round-tabs{
+                  width: 70px;
+                  height: 70px;
+                  line-height: 70px;
+                  display: inline-block;
+                  border-radius: 100px;
+                  background: white;
+                  z-index: 2;
+                  position: absolute;
+                  left: 0;
+                  text-align: center;
+                  font-size: 25px;
+              }
+      			.head-colour{background-color: #00bd86 !important;
+          border-color: #00bd86 !important;}
+              span.round-tabs.one{
+                  color: rgb(34, 194, 34);border: 2px solid rgb(34, 194, 34);
+              }
+
+              li.active span.round-tabs.one{
+                  background: #fff !important;
+                  border: 2px solid #ddd;
+                  color: rgb(34, 194, 34);
+              }
+
+              span.round-tabs.two{
+                  color: #febe29;border: 2px solid #febe29;
+              }
+
+              li.active span.round-tabs.two{
+                  background: #fff !important;
+                  border: 2px solid #ddd;
+                  color: #febe29;
+              }
+
+              span.round-tabs.three{
+                  color: #3e5e9a;border: 2px solid #3e5e9a;
+              }
+
+              li.active span.round-tabs.three{
+                  background: #fff !important;
+                  border: 2px solid #ddd;
+                  color: #3e5e9a;
+              }
+
+              span.round-tabs.four{
+                  color: #f1685e;border: 2px solid #f1685e;
+              }
+
+              li.active span.round-tabs.four{
+                  background: #fff !important;
+                  border: 2px solid #ddd;
+                  color: #f1685e;
+              }
+
+              span.round-tabs.five{
+                  color: #999;border: 2px solid #999;
+              }
+
+              li.active span.round-tabs.five{
+                  background: #fff !important;
+                  border: 2px solid #ddd;
+                  color: #999;
+              }
+
+              .nav-tabs > li.active > a span.round-tabs{
+                  background: #fafafa;
+              }
+              .nav-tabs > li {
+                  width: 20%;
+              }
+              /*li.active:before {
+                  content: " ";
+                  position: absolute;
+                  left: 45%;
+                  opacity:0;
+                  margin: 0 auto;
+                  bottom: -2px;
+                  border: 10px solid transparent;
+                  border-bottom-color: #fff;
+                  z-index: 1;
+                  transition:0.2s ease-in-out;
+              }*/
+              .nav-tabs > li:after {
+                  content: " ";
+                  position: absolute;
+                  left: 57%;
+                 opacity:0;
+                  margin: 0 auto;
+                  bottom: 0px;
+                  border: 5px solid transparent;
+                  border-bottom-color: #ddd;
+                  transition:0.1s ease-in-out;
+
+              }
+      /*
+              .nav-tabs > li.active:after {
+                  content: " ";
+                  position: absolute;
+                  left: 57%;
+                 opacity:1;
+                  margin: 0 auto;
+                  bottom: 0px;
+                  border: 10px solid transparent;
+                  border-bottom-color: #ddd;
+
+              }
+      */
+              .nav-tabs > li a{
+                 /*width: 121px;*/
+                /* height: 70px; */
+                 margin: 0px auto;
+                 border-radius: 100%;
+                 padding: 0;
+              }
+
+              .nav-tabs > li a:hover{
+                  background: transparent;
+              }
+
+              .tab-content{
+              }
+              .tab-pane{
+                 position: relative;
+              padding-top: 16px;
+              }
+              .tab-content .head{
+                  font-family: 'Roboto Condensed', sans-serif;
+                  font-size: 25px;
+                  text-transform: uppercase;
+                  padding-bottom: 10px;
+              }
+              .btn-outline-rounded{
+                  padding: 10px 40px;
+                  margin: 20px 0;
+                  border: 2px solid transparent;
+                  border-radius: 25px;
+              }
+
+              .btn.green{
+                  background-color:#5cb85c;
+                  /*border: 2px solid #5cb85c;*/
+                  color: #ffffff;
+              }
+
+			.wd{width:1000px !important}
+              @media( max-width : 585px ){
+				  .wd{width:300px !important}
+                  .board {
+              width: 90%;
+              height:auto !important;
+              }
+                  span.round-tabs {
+                      font-size:16px;
+              width: 50px;
+              height: 50px;
+              line-height: 50px;
+                  }
+                  .tab-content .head{
+                      font-size:20px;
+                      }
+                  .nav-tabs > li a {
+/*
+              width: 50px;
+              height: 50px;
+              line-height:50px;
+					  
+*/
+					      font-size: 5px;
+              }
+.nav-tabs > li {
+	width: initial;}
+              .nav-tabs > li.active:after {
+/*
+              content: " ";
+              position: absolute;
+              left: 35%;
+*/
+              }
+
+              .btn-outline-rounded {
+                  padding:12px 20px;
+                  }
+              }
+      .nav>li>a{padding:10px 15px !important;}
+      /*.panel-heading{padding: 1px 15px !important;}*/
+      .panel-default>.panel-heading{    color: #fff !important;background-color: #349fc9 !important;; border-color: #ddd;}
+      .person-name{color: #fff;background: #00bd86;line-height: 42px;margin-top: 0px;margin-bottom: 0;}
+      .person-bord{border: 1px solid #349fc9;}
+      			.person img{width: 100%;height: 274px;border: 3px solid #00bd86; }
+      /*panel css*/
+      .accordion-toggle:hover {
+            text-decoration: none;
+          }
+      			.accordion-toggle:active {
+            text-decoration: none;
+          }
+
+        /* ui slider pips */
+
+        	.ui-slider-horizontal.ui-slider-pips { margin-bottom: 2.8em; }
+        	.ui-slider-pips .ui-slider-number,
+        	.ui-slider-pips .ui-slider-pip-hide { display: none; }
+        	.ui-slider-pips .ui-slider-pip-number .ui-slider-number {/* display: block;*/ display:none }
+
+
+
+        	.ui-slider-pips .ui-slider-pip {
+        		width: 2em; height: 1em; line-height: 1em; position: absolute;
+        		font-size: 0.8em; color: #999; overflow: visible; text-align: center;
+        		top: 20px; left: 20px; margin-left: -1em; cursor: pointer;display: none;
+        	}
+        	.ui-slider-pips .ui-slider-line { background: #999; width: 1px; height: 3px; position: absolute; left: 50%; }
+        	.ui-slider-pips .ui-slider-number { position: absolute; top: 5px; left: 50%; margin-left: -1em; width: 2em; }
+        	.ui-slider-pip:hover .ui-slider-number { color: white; font-weight: bold; }
+
+
+
+
+        	.ui-slider-vertical.ui-slider-pips { margin-bottom: 0; margin-right: 2em; }
+        	.ui-slider-vertical.ui-slider-pips .ui-slider-pip {
+        		text-align: left; top: 20px; left: 20px; margin-left: 0; margin-top: -0.5em;
+        	}
+        	.ui-slider-vertical.ui-slider-pips .ui-slider-line { width: 3px; height: 1px; position: absolute; top: 50%; left: 0; }
+        	.ui-slider-vertical.ui-slider-pips .ui-slider-number { top: 50%; left: 0.5em; margin-left: 0; margin-top: -0.5em; width: 2em; }
+        	.ui-slider-vertical.ui-slider-pip:hover .ui-slider-number { color: white; font-weight: bold; }
+
+
+
+          .ui-slider-float .ui-slider-handle {
+
+          }
+
+          .ui-slider-float .ui-slider-tip,
+          .ui-slider-float .ui-slider-tip-number {
+
+            position: absolute; visibility: hidden;
+            top: -40px; display: block;
+            width: 34px; margin-left: -17px; left: 50%;
+            height: 20px; line-height: 20px;
+            background: white; border-radius: 3px;
+            box-shadow: 0 0 3px rgba(0,0,0,0.4);
+            text-align: center;
+            font-size: 12px;
+            opacity: -1; transition: all 0.4s ease;
+            color: #333;
+          }
+
+          .ui-slider-float .ui-slider-handle:hover .ui-slider-tip,
+          .ui-slider-float .ui-slider-handle:focus .ui-slider-tip,
+          .ui-slider-float .ui-slider-pip:hover .ui-slider-tip-number{ opacity: 0.9; top: -30px; color: #333; visibility: visible; }
+
+        .ui-slider-float .ui-slider-pip .ui-slider-tip-number { top: 15px; }
+        .ui-slider-float .ui-slider-pip:hover .ui-slider-tip-number { top: 5px; font-weight: normal; }
+
+          .ui-slider-float .ui-slider-tip:after,
+          .ui-slider-float .ui-slider-pip .ui-slider-tip-number:after {
+
+            content: " ";
+            width: 0; height: 0;
+            border: 5px solid rgba(255,255,255,0);
+            border-top-color: rgba(255,255,255,1);
+            position: absolute;
+            bottom: -10px; left: 50%; margin-left: -5px;
+
+          }
+
+          .ui-slider-float .ui-slider-pip .ui-slider-tip-number:after {
+            border: 5px solid rgba(255,255,255,0);
+            border-bottom-color: rgba(255,255,255,1);
+            top: -10px;
+          }
+
+
+        /* ------------------------- */
+        /* demo stuff */
+
+        .wrapper { padding: 0px 0px 0;/* border: 1px dotted rgba(200,200,255,0.6); background: rgba(0,10,20,0.7);*/ border-radius: 10px;  }
+        .ui-slider { box-shadow: inset 0 2px 1px #aaa; border-color: #000; }
+
+        .ui-slider-horizontal { height: 18px;
+          background: red; /* For browsers that do not support gradients */
+          background: -webkit-linear-gradient( right, #fcabaa, #fe8081, #fe5655,#ff2b2a, #fe0000,#d20000, #aacc22,#22ff00,#66db1d,#21b42b,#2b9a21,#447a34); /* For Safari 5.1 to 6.0 */
+          background: -o-linear-gradient(right, #fcabaa, #fe8081, #fe5655,#ff2b2a, #fe0000,#d20000, #aacc22,#22ff00,#66db1d,#21b42b,#2b9a21,#447a34); /* For Opera 11.1 to 12.0 */
+          background: -moz-linear-gradient(right, #fcabaa, #fe8081, #fe5655,#ff2b2a, #fe0000,#d20000, #aacc22,#22ff00,#66db1d,#21b42b,#2b9a21,#447a34); /* For Firefox 3.6 to 15 */
+          background: linear-gradient(to right, #fcabaa, #fe8081, #fe5655,#ff2b2a, #fe0000,#d20000, #aacc22,#22ff00,#66db1d,#21b42b,#2b9a21,#447a34) /* Standard syntax (must be last) */ /* Standard syntax (must be last) */
+      }
+        .ui-slider-horizontal .ui-slider-handle { height: 26px; width: 14px; background: #349fc9; border: 1px solid rgba(0,0,0,0.6); margin-left: -8px; cursor: pointer;position: absolute;margin-top: -3px; }
+        .ui-slider-horizontal.green .ui-slider-handle { background: #afe32c;}
+
+
+        @media (max-width: 700px) {
+
+          .ui-slider-pip:nth-child(odd) .ui-slider-number { display: none; }
+
+        }
+
+        @media (max-width: 400px) {
+
+          .ui-slider-pip:nth-child(2n+1) .ui-slider-number { display: none; }
+          .ui-slider-pip:nth-child(4n) .ui-slider-number { display: none; }
+
+        }
+        </style>
+        
+
+    </head>
+
+    <body style="overflow-x:hidden;">
+        <!-- HEADER SECTION-->
+        <div class="wraper1">
+            <header>
+
+                <nav id="header" class="navbar normal" role="navigation">
+
+                    <div class="container-fluid">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu-navbar" aria-expanded="false" aria-controls="menu-navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="index.html"><img src="images/logo.png" class="logo-img"></a>
+                        </div>
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="menu-navbar">
+
+                            <ul class="nav navbar-nav navbar-right">
+                                <li class="dropdown sign-top">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="images/headache.jpg" class="headprofile"> Alex Hales&nbsp;<b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="profilemain.html">Profile</a></li>
+                                        <li><a href="forgotpassword.html">Change Password</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">Logout</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                    </div>
+                    <!-- /.container-fluid -->
+                </nav>
+                <div class="clearfix"></div>
+            </header>
+            <div class="clearfix"></div>
+            <!--END HEADER SECTION-->
+            <div class="">
+                <section class="new-sidemenu">
+                    <div class="container-fluid padd0">
+
+                     <div class="col-md-2 padd0" id="menu-center" style="padding-top:10px; min-height:500px">
+                            <ul class="newmenu">
+                                <li><a href="home.html" class="home"> Home</a></li>
+                                <li class="active"><a href="learnmore.html" class="learn"> Learn </a></li>
+
+                                <li><a href="dashboard.html" class="dash"> Dashboard</a></li>
+                                <li><a href="myteam-viewgrid.html" class="team"> My Team</a></li>
+                                <li><a href="bookhealth.html" class="coach"> Health Coach</a></li>
+                                <li><a href="#" class="calendar"> Calendar</a></li>
+                                <li><a href="forum.html" class="forum"> Blog</a></li>
+                                 <li><a href="resources.html" class="pain">Resources</a></li>
+<li><a href="addtools.html" class="tool"> Tools</a></li>
+                            </ul>
+                        </div>
+
+
+
+
+                        <div class="col-md-10 aa" style="border-left:1px solid #ccc;">
+
+
+                     <div class="clearfix">&nbsp;</div>
+     <div class="course-header">
+                                <div class="col-sm-8 text-left">
+                                    <h2 style="color: #00bd86;">1.12 Are you ready to change?</h2></div>
+                                <div class="col-sm-4 text-right"><a href="learn-understand.html" class="backroll"><span><i class="fa fa-arrow-left" aria-hidden="true"></i></span>Back to Understand Tools</a></div>
+     <div class="clearfix"></div>
+                            </div>
+                        <div class="col-md-12 mem-head" style="background:#fff;padding:20px;    margin-bottom: 19px;">
+						<div id="rootwizard" style="font-family:Calibri;">
+                <div class="col-sm-2">
+
+				<div class="navbar">
+					<div class="navbar-inner">
+
+							<ul class="topics-center-align nav nav-pills nav-stacked">
+								
+                                	<li class="active"><a href="#tab1" data-toggle="tab" >Ready to change?</a></li>
+								
+								<li><a href="#tab3" data-toggle="tab">Change assessment</a></li>
+                                	<li ><a href="#tab4" data-toggle="tab">Changes Score</a></li>
+
+							</ul>
+
+					</div>
+				</div>
+				</div>
+                     </div>
+                <div class="col-sm-10">
+				<div class="tab-content">
+
+					
+                   
+                    <div class="tab-pane fade in active " id="tab1" >
+						<div class="embed-responsive embed-responsive-16by9">
+
+                      <iframe src="https://player.vimeo.com/video/222502415" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+						</div>
+
+                    </div>
+                    <div class="tab-pane" id="tab3">
+						<div class="">
+
+                       <div class="col-md-12 col-sm-10 col-xs-12 aa" style="border-left:1px solid #ccc;">
+                            <div class="clearfix">&nbsp;</div>
+                    <div class="col-sm-12">
+                      <div class="course-header">
+                            <div class="col-sm-12 text-center"><h2 style="color: #00bd86;">Change Assessment</h2></div>
+
+                            <div class="clearfix"></div>
+                                </div>
+
+
+
+                           <div style="background:#fff;padding:40px 30px;">
+								                             
+								  <div class="clearfix">&nbsp;</div>
+                                <form>
+                                <div class="form-group">
+                               <div class="form-group">
+
+                                    <div class="clearfix">&nbsp;</div>
+                                        <h4 class="labelhead">Readiness to Change: How much are you ready to change your lifestyle to improve your pain? (0 to 10 scale with 0-not at all and 10-completely ready)</h4>
+                                        <div class="clearfix">&nbsp;</div>
+                                    <div class="col-md-9 col-sm-9 col-xs-12">
+                                        <p>How important is it for you to make changes at this time?  </p>
+                                        </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-12">
+                                    <select class="form-control" name="range">
+                                        <option></option>
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                  </select>
+                              </div>
+                                     <div class="clearfix">&nbsp;</div>
+                                    <div class="col-md-9 col-sm-9 col-xs-12">
+                                        <p>How confident are you able to change at this time?  </p>
+                                        </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-12">
+                                    <select class="form-control" name="range">
+                                        <option></option>
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                  </select>
+                              </div>
+                                     <div class="clearfix">&nbsp;</div>
+                                    <div class="col-md-9 col-sm-9 col-xs-12">
+                                        <p>How interested are you in making changes? </p>
+                                        </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-12">
+                                    <select class="form-control" name="range">
+                                        <option></option>
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                  </select>
+                              </div>
+                                     <div class="clearfix">&nbsp;</div>
+                                    <div class="col-md-9 col-sm-9 col-xs-12">
+                                        <p>How much will things get in the way or prevent your change? </p>
+                                        </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-12">
+                                    <select class="form-control" name="range">
+                                        <option></option>
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                  </select>
+                              </div>
+                                   <div class="clearfix">&nbsp;</div>
+                                    <div class="col-md-9 col-sm-9 col-xs-12">
+                                        <p>How much do you feel you can succeed in making changes? </p>
+                                        </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-12">
+                                    <select class="form-control" name="range">
+                                        <option></option>
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                  </select>
+                              </div>
+                                     <div class="clearfix">&nbsp;</div>
+                                    <div class="col-md-9 col-sm-9 col-xs-12">
+                                        <p>How much do you believe it is worth the effort? </p>
+                                        </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-12">
+                                    <select class="form-control" name="range">
+                                        <option></option>
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                  </select>
+                              </div>
+                                    <div class="clearfix">&nbsp;</div>
+                                    <div class="col-md-9 col-sm-9 col-xs-12">
+                                        <p>How much do the benefits outweigh the challenges of making these changes </p>
+                                        </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-12">
+                                    <select class="form-control" name="range">
+                                        <option></option>
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                  </select>
+                              </div>
+                                    <div class="clearfix">&nbsp;</div>
+                                    <div class="col-md-9 col-sm-9 col-xs-12">
+                                        <p>Can you picture yourself as this new person if changes are made? </p>
+                                        </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-12">
+                                    <select class="form-control" name="range">
+                                        <option></option>
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                  </select>
+                              </div>
+                                     <div class="clearfix">&nbsp;</div>
+                                    <div class="col-md-9 col-sm-9 col-xs-12">
+                                        <p>How much do you think your family and friends will react positively to these changes? </p>
+                                        </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-12">
+                                    <select class="form-control" name="range">
+                                        <option></option>
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                  </select>
+                              </div>
+                                    <div class="clearfix">&nbsp;</div>
+                                    <div class="col-md-9 col-sm-9 col-xs-12">
+                                        <p>How much will your friends and family help you in your efforts? </p>
+                                        </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-12">
+                                    <select class="form-control" name="range">
+                                        <option></option>
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                  </select>
+                              </div>
+                                <div class="clearfix">&nbsp;</div>
+                                    <div class="clearfix">&nbsp;</div>
+                                    <div class="clearfix">&nbsp;</div>
+                                    <div class="text-center">
+
+                                    <a href="learn-understand-submit1.html" class="get-main sign-up"> Submit</a>
+
+                                </div>
+                                    </div>
+
+
+                                  </div>
+									<!-- <ul class="pagination  pull-right" style="margin-bottom:15px">
+                            <li><a href="accesspain-takepain-form5.html">Prev</a></li>
+                            <li class="disabled"><a href="#">Next</a></li>
+                                </ul>-->
+
+                                </form>
+                                 <div class="clearfix">&nbsp;</div>
+                             </div>
+                          <div class="clearfix">&nbsp;</div>
+                          </div>
+
+							<div class="clearfix">&nbsp;</div>
+                        </div>
+						</div>
+
+                    </div>
+                    
+                      <div class="tab-pane " id="tab4">
+						            <div class="col-md-12">
+                          <div>
+                              <div>
+                                      
+                              </div>
+                              <div class="panel-body">
+                                  <div class="tab-content">
+                                  
+                                      
+                                      <div class="">
+										 
+                                      <div class="col-sm-12 padd0">
+
+              				<div class="navbar" style="
+    font-size: 32px;color:#e66463;
+    text-align: center;font-family: inherit;
+    font-weight: 500;
+    line-height: 1.1;
+">
+              					<div class="navbar-inner">
+
+              							<ul class="topics-center-align nav nav-pills nav-stacked">
+              								
+                                              
+                                                              <span>Readiness to Change Score</span>
+<h3 style="color:black !important">Thank you for completing the assessment. Here is your score.</h3>
+<p></p>
+
+              							</ul>
+
+              					</div>
+              				</div>
+                                   </div>
+
+                                       <div class="col-sm-12">
+              				<div class="tab-content">
+                                 <div class="tab-pane in active" id="tab11" style="padding-top:24
+px">
+
+
+            <div class="wrapper" style="
+    /* margin-top: 4px; */
+">
+<!--  <div class="slider"></div>-->
+
+<div class="slider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all ui-slider-pips" style="margin:0px"><span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 50%;"></span><span class="ui-slider-pip ui-slider-pip-first ui-slider-pip-number" style="left: 0%;"><span class="ui-slider-line"></span><span class="ui-slider-number">0</span></span><span class="ui-slider-pip" style="left: 10%;"><span class="ui-slider-line"></span><span class="ui-slider-number">1</span></span><span class="ui-slider-pip" style="left: 20%;"><span class="ui-slider-line"></span><span class="ui-slider-number">2</span></span><span class="ui-slider-pip" style="left: 30%;"><span class="ui-slider-line"></span><span class="ui-slider-number">3</span></span><span class="ui-slider-pip" style="left: 40%;"><span class="ui-slider-line"></span><span class="ui-slider-number">4</span></span><span class="ui-slider-pip" style="left: 50%;"><span class="ui-slider-line"></span><span class="ui-slider-number">5</span></span><span class="ui-slider-pip" style="left: 60%;"><span class="ui-slider-line"></span><span class="ui-slider-number">6</span></span><span class="ui-slider-pip" style="left: 70%;"><span class="ui-slider-line"></span><span class="ui-slider-number">7</span></span><span class="ui-slider-pip" style="left: 80%;"><span class="ui-slider-line"></span><span class="ui-slider-number">8</span></span><span class="ui-slider-pip" style="left: 90%;"><span class="ui-slider-line"></span><span class="ui-slider-number">9</span></span><span class="ui-slider-pip ui-slider-pip-last ui-slider-pip-number" style="left: 100%;"><span class="ui-slider-line"></span><span class="ui-slider-number">10</span></span></div>
+                
+                <div class="col-md-12 hidden-xs">
+                    <div class="clearfix">&nbsp;</div>
+               <span> <p class="text-justify " style="float: left"> <span class=" col-xs-12 " style=" 
+    background-color: #fc9f9e;width:10px;border-radius: 50%;margin: 4px 5px 0px 0px;
+                                                 padding: 6px;"></span>Not ready yet</p>
+                <p class="text-justify" ><span class=" col-xs-12 " style=" 
+    background-color: #e20000;width:10px;border-radius: 50%;margin: 4px 5px 0px 97px;
+                                                 padding: 6px;"></span>Considering change</p>
+                <p data-brackets-id="7811" style="
+    margin: -31px 0px 0px 0px;
+"><span data-brackets-id="7812" class="col-md-12" style="
+    background-color: #84da19;
+    width:10px;
+    border-radius: 50%;
+    margin: 4px 7px 5px 176px;
+    padding: 6px;
+    "></span>Ready to take action</p>
+                    <p data-brackets-id="8775" class="text-justify" style="float: right;margin: -21px -10px 0px 0px;"><span data-brackets-id="8776" class=" col-xs-12 " style=" 
+    background-color: green;width:10px;border-radius: 50%;margin: 4px 5px 0px 0px;
+                                                     padding: 6px;"></span>Preparing to change</p></span> </div>
+                
+ <div class="col-xs-12 hidden-lg">
+<div class="clearfix">&nbsp;</div>
+     
+     <div class="col-xs-6" style="margin-left: -29px;">
+                <span class=" col-xs-12 " style=" 
+    background-color: #fc9f9e;width:10px;border-radius: 50%;
+                                                 padding: 6px;"></span> <p style="margin: -6px -20px 4px 19px;">Not ready yet</p></div>
+             <div class="col-xs-6" style="float:right" >   <span class=" col-xs-12 " style=" 
+    background-color: #e20000;width:10px;border-radius: 50%;
+                                                 padding: 6px;"></span> <p style="margin: -6px -20px 4px 19px;">Considering change</p></div>
+     <div class="clearfix">&nbsp;</div>
+               <div class="col-xs-6" style="margin-left: -29px;"> <span class=" col-xs-12 " style=" 
+    background-color: #84da19;width:10px;border-radius: 50%;
+                                                 padding: 6px;"></span> <p style="margin: -6px -20px 4px 19px;">Ready to take action</p></div>
+                   <div class="col-xs-6" style="float:right; "> <span class=" col-xs-12 " style=" 
+    background-color: green;width:10px;border-radius: 50%;
+                                                     padding: 6px;"></span> <p style="margin: -6px -20px 4px 19px;">Preparing to change</p></div></div>
+
+                
+</div>
+                                     <div class="clearfix">&nbsp;</div>
+              						 <div class="clearfix">&nbsp;</div>
+              						 <div class="clearfix">&nbsp;</div>
+                                   
+              				    <h4 ><u>Guide to Interpretation</u></h4>
+                                    <span>
+                                  <label class="control-label "> Precontemplation (0 to 3) </label> – You are interested in change but may not be ready to make any changes quite yet. </span>
+                          <span>
+                                  <label class="control-label "> Contemplation (3 to 5) </label> – You are considering your goals and what changes you would like to make and the barriers that need to be addressed to accomplish them.  </span><br>
+                          <span>
+                                  <label class="control-label "> Preparation (5 to 7) </label>  – You are prepared to change and are willing to make the changes and address the barriers to create how you want to be. </span><br>
+                          <span>
+                                  <label class="control-label "> Action (7 to 10)  </label> – You are ready to learn the new skills and lifestyles necessary to create how you want to be. </span>
+                          
+              						 <div class="clearfix">&nbsp;</div>
+              						 <div class="clearfix">&nbsp;</div>
+
+
+
+
+                                  </div>
+                                  
+                               </div></div>
+
+                                  </div>
+                          </div>
+                              </div>
+                          </div>
+                      </div>
+
+                      </div>
+
+
+                    </div>
+                     <ul class="pager wizard">
+						<li class="previous first"><a href="javascript:;" class="wizard-btn">First</a></li>
+						<li class="previous"><a href="javascript:;" class="wizard-btn">Previous</a></li>
+						<li class="next last"><a href="javascript:;" class="wizard-btn">Last</a></li>
+						<li class="next"><a href="javascript:;" class="wizard-btn">Next</a></li>
+<!--						<li class="finish"><a href="javascript:;" class="fnsh-btn">Complete</a></li>-->
+						 <li class="finish"><a href="learn-understand.html" class="fnsh-btn">Complete</a></li>
+                        </ul>
+                    </div>
+                            </div>
+                            </div>
+
+
+
+</div>
+
+                             <div class="clearfix">&nbsp;</div>
+
+                                <div class="clearfix">&nbsp;</div>
+                            </div>
+
+                        </div>
+                </section>
+
+            <footer>
+                <div class="footer" id="footer">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="row">
+                            <div class="  col-md-3 col-sm-6 col-xs-6">
+                                <h3> Seven Realms </h3>
+                                <ul>
+                                  <li> <a href="for_preventingpain.html"> Preventing Pain</a> </li>
+                                    <li> <a href="course-overview.html"> Course Overview</a> </li>
+                                    <li> <a href="register.html"> Sign Up</a> </li>
+                                    <li> <a href="aboutus.html"> About Us </a> </li>
+                                    <li> <a href="contactus.html"> Contact Us</a> </li>
+                                    <li> <a href="termofuse.html"> Terms Of Use </a> </li>
+                                     <li> <a href="termsofservice.html"> Terms Of Service </a> </li>
+                                    <li> <a href="privacy_policy.html">Privacy Policy</a> </li>
+
+                                </ul>
+                            </div>
+                            <div class=" col-md-3 col-sm-6 col-xs-6">
+                                <h3> Solutions </h3>
+                                <ul>
+                                    <li> <a href="for_you.html"> For You</a> </li>
+                                    <li> <a href="for_employeees.html"> For Employers      </a> </li>
+                                    <li> <a href="for_health_professionals.html"> For Health Professionals</a> </li>
+                                </ul>
+                            </div>
+                            <div class=" col-md-3 col-sm-6 col-xs-12">
+                                <h3>Get in touch </h3>
+                                <form class="contact-form">
+                                    <div class="form-group">
+
+                                        <input type="text" class="form-control"  placeholder="Name">
+                                    </div>
+                                    <div class="form-group">
+
+                                        <input type="text" class="form-control"  placeholder="Mobile">
+                                    </div>
+                                    <div class="form-group">
+
+                                        <input type="text" class="form-control"  placeholder="Email">
+                                    </div>
+                                    <div class="form-group">
+
+                                        <textarea type="text" class="form-control"  placeholder="Comments"></textarea>
+                                    </div>
+                                    <div class="form-group">
+
+                                        <button class="btn btn-primary btn-block">Submit</button>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <div class=" col-md-3 col-sm-6 col-xs-12 ">
+                                <h3> Social </h3>
+
+                                <ul class="social">
+                                    <li>
+                                        <a href="https://www.facebook.com/preventingchronicpain" target="_blank"> <i class=" fa fa-facebook"></i> </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://twitter.com/search?q=%40Prevent_Pain&src=typd" target="_blank" target="_blank"> <i class="fa fa-twitter"></i> </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://plus.google.com/117694283256027153264" target="_blank"> <i class="fa fa-google-plus"></i> </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="https://www.youtube.com/channel/UCXCex4WDfmBMZaUb9NiKjuQ" target="_blank"> <i class="fa fa-youtube"></i> </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--/.row-->
+                        <div class="clearfix"></div>
+                    </div>
+                    <!--/.container-->
+                    <div class="clearfix"></div>
+                </div>
+                <!--/.footer-->
+
+                <div class="footer-bottom">
+                    <div class="container">
+                        <p class="text-center"> Copyrights &copy; Seven Realms Solutions 2016. All rights reserved. </p>
+
+                    </div>
+                </div>
+                <!--/.footer-bottom-->
+            </footer>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ <script src="js/jquery.bootstrap.wizard.js"></script>
+
+           <script type="text/javascript">
+		$(document).ready(function() {
+				$('#rootwizard').bootstrapWizard({
+					  onTabShow : function(tab,navigation, index) {
+						  				var $total = navigation.find('li').length;
+										var $current = index + 1;
+										//alert($current);
+										//var $percent = ($current / $total) * 100;
+										//$('#rootwizard').find('.bar').css({width : $percent + '%'});
+
+										//While switching across the tabs, we need to pause the video that is being played - here we're pausing all videos.
+
+                           $("iframe").each(
+                                function (idx, elem) {
+                                    $(elem)[0].contentWindow.postMessage('{"method":"pause","value":""}', '*'); // other options beside pauseVideo are playVideo,stopVideo
+                                }
+                            );
+
+
+
+								 }//onTabshow function
+				});//rootwizard
+
+
+
+
+		});//document.ready
+	</script>
+<script>
+	var points = 20;
+
+
+
+
+
+
+/* jquery slider pips plugin, version 0.1 */
+
+	(function($) {
+
+		var extensionMethods = {
+
+			pips: function( settings ) {
+
+				options = {
+
+					first: 	"number", 	// "pip" , false
+					last: 	"number", 	// "pip" , false
+					rest: 	"pip" 		// "number" , false
+
+				};
+
+				$.extend( options, settings );
+
+				// get rid of all pips that might already exist.
+				this.element.addClass('ui-slider-pips').find( '.ui-slider-pip' ).remove();
+
+				// we need teh amount of pips to create.
+				var pips = this.options.max - this.options.min;
+
+					// for every stop in the slider, we create a pip.
+					for( i=0; i<=pips; i++ ) {
+
+						// hold a span element for the pip
+						var s = $('<span class="ui-slider-pip"><span class="ui-slider-line"></span><span class="ui-slider-number">'+i+'</span></span>');
+
+						// add a class so css can handle the display
+						// we'll hide numbers by default in CSS, and show them if set.
+						// we'll also use CSS to hide the pip altogether.
+						if( 0 == i ) {
+							s.addClass('ui-slider-pip-first');
+							if( "number" == options.first ) { s.addClass('ui-slider-pip-number'); }
+							if( false == options.first ) { s.addClass('ui-slider-pip-hide'); }
+						} else if ( pips == i ) {
+							s.addClass('ui-slider-pip-last');
+							if( "number" == options.last ) { s.addClass('ui-slider-pip-number'); }
+							if( false == options.last ) { s.addClass('ui-slider-pip-hide'); }
+						} else {
+							if( "number" == options.rest ) { s.addClass('ui-slider-pip-number'); }
+							if( false == options.rest ) { s.addClass('ui-slider-pip-hide'); }
+						}
+
+
+						// if it's a horizontal slider we'll set the left offset,
+						// and the top if it's vertical.
+						if( this.options.orientation == "horizontal" )
+							s.css({ left: '' + (100/pips)*i + '%'  });
+						else
+							s.css({ top: '' + (100/pips)*i + '%'  });
+
+
+						// append the span to the slider.
+						this.element.append( s );
+
+					}
+
+			}
+
+
+		};
+
+		$.extend(true, $['ui']['slider'].prototype, extensionMethods);
+
+
+	})(jQuery);
+
+
+
+
+(function($) {
+
+		var extensionMethods = {
+
+			float: function( settings ) {
+
+				options = {};
+				$.extend( options, settings );
+
+				// add a class for the CSS
+				this.element.addClass('ui-slider-float');
+
+
+        // if this is a range slider
+        if( this.options.values ) {
+
+          var $tip = [
+            $('<span class="ui-slider-tip">'+ this.options.values[0]+'</span>'),
+            $('<span class="ui-slider-tip">'+ this.options.values[1]+'</span>')
+          ];
+
+
+        // else if its just a normal slider
+        } else {
+
+          // create a tip element
+          var $tip = $('<span class="ui-slider-tip">'+ this.options.value+'</span>');
+
+        }
+
+        // now we append it to all the handles
+        this.element.find('.ui-slider-handle').each( function(k,v) {
+          $(v).append($tip[k]);
+        })
+
+        // if this slider also has numbers, we'll make those into tips, too; by cloning and changing class.
+       // this.element.find('.ui-slider-number').each(function(k,v) {
+          //var $e = $(v).clone().removeClass('ui-slider-number').addClass('ui-slider-tip-number');
+         // $e.insertAfter($(v));
+       // });
+
+        // when slider changes, update handle tip value.
+        this.element.on('slidechange slide', function(e,ui) {
+          $(ui.handle).find('.ui-slider-tip').text( ui.value );
+        });
+
+			}
+
+
+		};
+
+		$.extend(true, $['ui']['slider'].prototype, extensionMethods);
+
+
+	})(jQuery);
+
+
+
+
+
+/* ------------------------- */
+/* demo stuff */
+
+$(document).ready(function() {
+  $('.slider, .slider2').slider({min:0,max:10,animate:true, value:5});
+  $('.slider3').slider({min:0,max:10,animate:true,range:true, values:[2,7]});
+  $('.slider').slider('pips');
+  $('.slider2').slider('pips',);
+ // $('.slider3').slider('pips', {first:'pip', last: 'pip'});
+//
+//  $('.slider4').slider({min:0,max:points,animate:true,value:4});
+//  $('.slider6').slider({min:0,max:points,animate:true,range: true,values:[3,6] });
+
+//  $('.slider4').slider('pips');
+//  $('.slider4, .slider6').slider('float');
+});
+
+
+
+			</script>
+
+        <script src="js/highcharts.json"></script>
+        <script src="js/jquery.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/canvasjs.min.js"></script>
+<!--
+        <script type="text/javascript">
+
+
+$.getScript('http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js',function(){
+$.getScript('http://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.0/morris.min.js',function(){
+
+  Morris.Area({
+    element: 'area-example',
+    data: [
+      { y: '1.1.', a: 100, b: 90 },
+      { y: '2.1.', a: 75,  b: 65 },
+      { y: '3.1.', a: 50,  b: 40 },
+      { y: '4.1.', a: 75,  b: 65 },
+      { y: '5.1.', a: 50,  b: 40 },
+      { y: '6.1.', a: 75,  b: 65 },
+      { y: '7.1.', a: 100, b: 90 }
+    ],
+    xkey: 'y',
+    ykeys: ['a', 'b'],
+    labels: ['Series A', 'Series B']
+  });
+
+  Morris.Line({
+        element: 'line-example',
+        data: [
+          {year: '2010', value: 20},
+          {year: '2011', value: 10},
+          {year: '2012', value: 5},
+          {year: '2013', value: 2},
+          {year: '2014', value: 20}
+        ],
+        xkey: 'year',
+        ykeys: ['value'],
+        labels: ['Value']
+      });
+
+      Morris.Donut({
+        element: 'donut-example',
+		  data: [
+        {label: "Shoulder", value: 12},
+         {label: "Head", value: 30},
+        {label: "Heart", value: 20}
+       ]
+     });
+
+     Morris.Bar({
+         element: 'bar-example',
+         data: [
+            {y: 'Jan 2014', a: 100, b: 90},
+            {y: 'Feb 2014', a: 75,  b: 65},
+            {y: 'Mar 2014', a: 50,  b: 40},
+		    {y: 'Apr 2014', a: 75,  b: 65},
+            {y: 'May 2014', a: 50,  b: 40},
+            {y: 'Jun 2014', a: 75,  b: 65}
+        ],
+        xkey: 'y',
+        ykeys: ['a', 'b'],        labels: ['Visitors', 'Conversions']
+    });
+
+});
+    });
+</script>
+-->
+
+        <script type="text/javascript">
+    jQuery(function ($) {
+        var data1 = [12, 3, 4, 2, 12, 3, 4, 17, 22, 34, 54, 67];
+        var data2 = [3, 9, 12, 14, 22, 32, 45, 12, 67, 45, 55, 7];
+        var data3 = [23, 19, 11, 134, 242, 352, 435, 22, 637, 445, 555, 57];
+
+        $(function () {
+            $("#chart1").shieldChart({
+                exportOptions: {
+                    image: false,
+                    print: false
+                },
+                axisY: {
+                    title: {
+                        text: "Break-Down for selected quarter"
+                    }
+                },
+                dataSeries: [{
+                    seriesType: "bar",
+                    data: data1
+                }]
+            });
+
+            $("#chart2").shieldChart({
+                exportOptions: {
+                    image: false,
+                    print: false
+                },
+                axisY: {
+                    title: {
+                        text: "Break-Down for selected quarter"
+                    }
+                },
+                dataSeries: [{
+                    seriesType: "bar",
+                    data: data2
+                }, {
+                    seriesType: "bar",
+                    data: data3
+                }]
+            });
+
+
+        });
+
+    });
+</script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<!-- <script src="https://code.highcharts.com/modules/exporting.js"></script> -->
+
+
+
+
+
+<script>
+$('.collapse').on('shown.bs.collapse', function(){
+$(this).parent().find(".glyphicon-plus").removeClass("glyphicon-plus").addClass("glyphicon-minus");
+}).on('hidden.bs.collapse', function(){
+$(this).parent().find(".glyphicon-minus").removeClass("glyphicon-minus").addClass("glyphicon-plus");
+});
+</script>
+
+
+<script src="https://code.jquery.com/jquery-2.1.1.js"></script>
+<script src="https://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+
+   
+<script src="js/highcharts.json"></script>
+        <script src="js/jquery.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/canvasjs.min.js"></script>
+<!--
+        <script type="text/javascript">
+
+
+$.getScript('http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js',function(){
+$.getScript('http://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.0/morris.min.js',function(){
+
+  Morris.Area({
+    element: 'area-example',
+    data: [
+      { y: '1.1.', a: 100, b: 90 },
+      { y: '2.1.', a: 75,  b: 65 },
+      { y: '3.1.', a: 50,  b: 40 },
+      { y: '4.1.', a: 75,  b: 65 },
+      { y: '5.1.', a: 50,  b: 40 },
+      { y: '6.1.', a: 75,  b: 65 },
+      { y: '7.1.', a: 100, b: 90 }
+    ],
+    xkey: 'y',
+    ykeys: ['a', 'b'],
+    labels: ['Series A', 'Series B']
+  });
+
+  Morris.Line({
+        element: 'line-example',
+        data: [
+          {year: '2010', value: 20},
+          {year: '2011', value: 10},
+          {year: '2012', value: 5},
+          {year: '2013', value: 2},
+          {year: '2014', value: 20}
+        ],
+        xkey: 'year',
+        ykeys: ['value'],
+        labels: ['Value']
+      });
+
+      Morris.Donut({
+        element: 'donut-example',
+		  data: [
+        {label: "Shoulder", value: 12},
+         {label: "Head", value: 30},
+        {label: "Heart", value: 20}
+       ]
+     });
+
+     Morris.Bar({
+         element: 'bar-example',
+         data: [
+            {y: 'Jan 2014', a: 100, b: 90},
+            {y: 'Feb 2014', a: 75,  b: 65},
+            {y: 'Mar 2014', a: 50,  b: 40},
+		    {y: 'Apr 2014', a: 75,  b: 65},
+            {y: 'May 2014', a: 50,  b: 40},
+            {y: 'Jun 2014', a: 75,  b: 65}
+        ],
+        xkey: 'y',
+        ykeys: ['a', 'b'],        labels: ['Visitors', 'Conversions']
+    });
+
+});
+    });
+</script>
+-->
+
+        <script type="text/javascript">
+    jQuery(function ($) {
+        var data1 = [12, 3, 4, 2, 12, 3, 4, 17, 22, 34, 54, 67];
+        var data2 = [3, 9, 12, 14, 22, 32, 45, 12, 67, 45, 55, 7];
+        var data3 = [23, 19, 11, 134, 242, 352, 435, 22, 637, 445, 555, 57];
+
+        $(function () {
+            $("#chart1").shieldChart({
+                exportOptions: {
+                    image: false,
+                    print: false
+                },
+                axisY: {
+                    title: {
+                        text: "Break-Down for selected quarter"
+                    }
+                },
+                dataSeries: [{
+                    seriesType: "bar",
+                    data: data1
+                }]
+            });
+
+            $("#chart2").shieldChart({
+                exportOptions: {
+                    image: false,
+                    print: false
+                },
+                axisY: {
+                    title: {
+                        text: "Break-Down for selected quarter"
+                    }
+                },
+                dataSeries: [{
+                    seriesType: "bar",
+                    data: data2
+                }, {
+                    seriesType: "bar",
+                    data: data3
+                }]
+            });
+
+
+        });
+
+    });
+</script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<!-- <script src="https://code.highcharts.com/modules/exporting.js"></script> -->
+
+
+
+
+
+<script>
+$('.collapse').on('shown.bs.collapse', function(){
+$(this).parent().find(".glyphicon-plus").removeClass("glyphicon-plus").addClass("glyphicon-minus");
+}).on('hidden.bs.collapse', function(){
+$(this).parent().find(".glyphicon-minus").removeClass("glyphicon-minus").addClass("glyphicon-plus");
+});
+</script>
+
+
+<script src="https://code.jquery.com/jquery-2.1.1.js"></script>
+<script src="https://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+
+<script>
+	var points = 20;
+
+
+
+
+
+
+/* jquery slider pips plugin, version 0.1 */
+
+	(function($) {
+
+		var extensionMethods = {
+
+			pips: function( settings ) {
+
+				options = {
+
+					first: 	"number", 	// "pip" , false
+					last: 	"number", 	// "pip" , false
+					rest: 	"pip" 		// "number" , false
+
+				};
+
+				$.extend( options, settings );
+
+				// get rid of all pips that might already exist.
+				this.element.addClass('ui-slider-pips').find( '.ui-slider-pip' ).remove();
+
+				// we need teh amount of pips to create.
+				var pips = this.options.max - this.options.min;
+
+					// for every stop in the slider, we create a pip.
+					for( i=0; i<=pips; i++ ) {
+
+						// hold a span element for the pip
+						var s = $('<span class="ui-slider-pip"><span class="ui-slider-line"></span><span class="ui-slider-number">'+i+'</span></span>');
+
+						// add a class so css can handle the display
+						// we'll hide numbers by default in CSS, and show them if set.
+						// we'll also use CSS to hide the pip altogether.
+						if( 0 == i ) {
+							s.addClass('ui-slider-pip-first');
+							if( "number" == options.first ) { s.addClass('ui-slider-pip-number'); }
+							if( false == options.first ) { s.addClass('ui-slider-pip-hide'); }
+						} else if ( pips == i ) {
+							s.addClass('ui-slider-pip-last');
+							if( "number" == options.last ) { s.addClass('ui-slider-pip-number'); }
+							if( false == options.last ) { s.addClass('ui-slider-pip-hide'); }
+						} else {
+							if( "number" == options.rest ) { s.addClass('ui-slider-pip-number'); }
+							if( false == options.rest ) { s.addClass('ui-slider-pip-hide'); }
+						}
+
+
+						// if it's a horizontal slider we'll set the left offset,
+						// and the top if it's vertical.
+						if( this.options.orientation == "horizontal" )
+							s.css({ left: '' + (100/pips)*i + '%'  });
+						else
+							s.css({ top: '' + (100/pips)*i + '%'  });
+
+
+						// append the span to the slider.
+						this.element.append( s );
+
+					}
+
+			}
+
+
+		};
+
+		$.extend(true, $['ui']['slider'].prototype, extensionMethods);
+
+
+	})(jQuery);
+
+
+
+
+(function($) {
+
+		var extensionMethods = {
+
+			float: function( settings ) {
+
+				options = {};
+				$.extend( options, settings );
+
+				// add a class for the CSS
+				this.element.addClass('ui-slider-float');
+
+
+        // if this is a range slider
+        if( this.options.values ) {
+
+          var $tip = [
+            $('<span class="ui-slider-tip">'+ this.options.values[0]+'</span>'),
+            $('<span class="ui-slider-tip">'+ this.options.values[1]+'</span>')
+          ];
+
+
+        // else if its just a normal slider
+        } else {
+
+          // create a tip element
+          var $tip = $('<span class="ui-slider-tip">'+ this.options.value+'</span>');
+
+        }
+
+        // now we append it to all the handles
+        this.element.find('.ui-slider-handle').each( function(k,v) {
+          $(v).append($tip[k]);
+        })
+
+        // if this slider also has numbers, we'll make those into tips, too; by cloning and changing class.
+       // this.element.find('.ui-slider-number').each(function(k,v) {
+          //var $e = $(v).clone().removeClass('ui-slider-number').addClass('ui-slider-tip-number');
+         // $e.insertAfter($(v));
+       // });
+
+        // when slider changes, update handle tip value.
+        this.element.on('slidechange slide', function(e,ui) {
+          $(ui.handle).find('.ui-slider-tip').text( ui.value );
+        });
+
+			}
+
+
+		};
+
+		$.extend(true, $['ui']['slider'].prototype, extensionMethods);
+
+
+	})(jQuery);
+
+
+
+
+
+/* ------------------------- */
+/* demo stuff */
+
+$(document).ready(function() {
+  $('.slider, .slider2').slider({min:0,max:10,animate:true, value:5});
+  $('.slider3').slider({min:0,max:10,animate:true,range:true, values:[2,7]});
+  $('.slider').slider('pips');
+  $('.slider2').slider('pips',);
+ // $('.slider3').slider('pips', {first:'pip', last: 'pip'});
+//
+//  $('.slider4').slider({min:0,max:points,animate:true,value:4});
+//  $('.slider6').slider({min:0,max:points,animate:true,range: true,values:[3,6] });
+
+//  $('.slider4').slider('pips');
+//  $('.slider4, .slider6').slider('float');
+});
+
+
+
+			</script>
+
+
+    </body>
+
+</html>

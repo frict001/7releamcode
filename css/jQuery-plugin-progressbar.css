@@ -1,0 +1,53 @@
+body { background-color:#ECF0F1;}
+.position {
+  float: left;
+  margin: 10px 50px;
+}
+
+.progress-bar1 {
+  position: relative;
+  height: 90px;
+  width: 90px;
+}
+
+.progress-bar1 div {
+  position: absolute;
+  height: 90px;
+  width: 90px;
+  border-radius: 50%;
+}
+
+.progress-bar1 div span {
+  position: absolute;
+  font-family: Arial;
+  font-size: 15px;
+  line-height: 70px;
+  height: 70px;
+  width: 70px;
+  left: 10px;
+  top: 10px;
+  text-align: center;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.progress-bar1 .background { background-color: #b3cef6; }
+
+.progress-bar1 .rotate {
+  clip: rect(0 50px 100px 0);
+  background-color: #4b86db;
+}
+
+.progress-bar1 .left {
+  clip: rect(0 50px 100px 0);
+  opacity: 1;
+  background-color: #b3cef6;
+}
+
+.progress-bar1 .right {
+  clip: rect(0 50px 100px 0);
+  transform: rotate(180deg);
+  opacity: 0;
+  background-color: #4b86db;
+}
+ 

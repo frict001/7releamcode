@@ -1,0 +1,100 @@
+<html>
+<head>
+	<title>Login page</title>
+	<link href="css/style.css" rel="stylesheet">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <style>
+        input::-webkit-input-placeholder {
+color: #fff !important;
+}
+ 
+input:-moz-placeholder { /* Firefox 18- */
+color: #fff !important;  
+}
+ 
+input::-moz-placeholder {  /* Firefox 19+ */
+color: #fff !important;  
+}
+ 
+input:-ms-input-placeholder {  
+color: #fff !important;  
+}
+        input{    background-color: rgba(0, 0, 0, 0.19) !important;
+    height: 40px !important;
+    border: none !important;
+        color:#fff !important}
+    </style>
+</head>
+<body class="loginbg" style="transition:none">
+    <div class="overlay-login"></div>
+	<div class="col-md-offset-4 col-md-4">
+         <div class="clearfix">&nbsp;</div>
+         <div class="clearfix">&nbsp;</div>
+         <div class="clearfix">&nbsp;</div>
+         <div class="clearfix">&nbsp;</div>
+         <div class="clearfix">&nbsp;</div>
+         <div class="clearfix">&nbsp;</div>
+         <div class="clearfix">&nbsp;</div>
+        
+		<div class="panel panel-default panelback">
+            <div class="panel-heading text-center panelback">
+				<img src="images/logo.png" class="logo-img">
+            </div>
+            <div class="panel-body">
+                <h3 class="text-center" style="color:#fff">LOG IN</h3>
+                <div class="clearfix">&nbsp;</div>
+                <form class="" action="" method="post" name="">
+                   
+                        
+                      <div class="form-group">
+    
+    <input type="email" class="form-control"  placeholder="Email">
+  </div>
+                        <div class="form-group">
+
+    <input type="password" class="form-control"  placeholder="Password">
+  </div>
+                    <div class="text-center">
+                      
+                            <a href="dashboard.html" class="loginbtn">Login</a>
+            </div>
+                </form>
+                <br>
+                <a href="" class="pull-left" data-toggle="modal" data-target="#myModal" style="color:#fff">Forgot Password?</a>
+                <a href="" class="pull-right" style="color:#fff">Signup</a>
+            </div>
+        </div>
+    </div>
+    <div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-md">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" style="color: #333;
+    opacity: 1;">&times;</button>
+        <h4 class="modal-title text-left">Forgot Password</h4>
+      </div>
+      <div class="modal-body">
+       <div class="col-md-8 col-md-offset-2">
+		  <div class="form-group">
+    
+    <input type="email" class="form-control"  placeholder="Email">
+  </div>
+		  </div>
+		    
+		 
+		  <div class="col-md-12 text-center">
+		  <a href="#" class="get-main sign-up"> Submit</a></div>
+          <div class="clearfix"></div>
+      </div>
+     
+    </div>
+
+  </div>
+</div>
+    <script src="js/jquery.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
