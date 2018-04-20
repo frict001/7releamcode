@@ -1,0 +1,49 @@
+@media screen and (min-width: 768px)and (max-width: 1024px){
+
+ .learnimageset{
+     width: 100%;
+    height: 100% !important;
+    position:inherit !important;
+    left: 0px !important;
+    top: 0px !important;
+    }
+     .block-div1 {
+    width: 100% !important;
+    padding: 0px 15px !important;
+    float: left !important;
+    box-sizing: border-box !important;
+    margin-left: 0px !important;
+}
+.icon7 {
+    width: 50% !important;
+    margin-top: 8px;
+}
+.iconasthedata{
+    width:50% !important;
+    margin-top: 0px !important;
+    margin-right: 0px !important;
+    }
+     .iconasthedata1{
+    width:50% !important;
+    }
+    .sampdataofprogressbar{
+    padding:0px;
+    }
+    .progress-bar1 div {
+    left: 330%;
+}
+    }
+    
+    @media screen and (min-width: 300px){
+    
+    .learnimageset{
+     width: 100%;
+    height: 100% !important;
+    position:inherit !important;
+    left: 0px !important;
+    top: 0px !important;
+    }
+    .sampdataofprogressbar{
+    padding:0px;
+    }
+    }
